@@ -157,7 +157,7 @@ cp2y.mainPage=function(){
 			cp2y.dialog.clearLoading();
 			var i=0,len=data.list.length,html=[],hot="a0",tmp='';
 			if(sessionStorage.getItem('isShowBanner')!=1){
-				html.push('<div class="banner" id="banner"><i onclick="cp2y.closeBanner();" id="closeBanner"></i><a href="/news/rechargesendmoney.jsp" target="_blank"><img src="'+WebAppUrl.RESOURCE_URL+'../activityImages/minActivityBanner0.jpg" /></a></div>');
+				//html.push('<div class="banner" id="banner"><i onclick="cp2y.closeBanner();" id="closeBanner"></i><a href="/news/rechargesendmoney.jsp" target="_blank"><img src="'+WebAppUrl.RESOURCE_URL+'../activityImages/minActivityBanner0.jpg" /></a></div>');
 			}
 			for(i;i<len;i++){
 				tmp='';
@@ -197,7 +197,7 @@ cp2y.mainPage=function(){
 				html.push(tmp);
 				html.push('</div></div>');
 			}
-			html.push('<a href="/caiguanya"><div class="playType">');
+			html.push('<a href="cgy.html"><div class="playType">');
 			html.push('<div class="img2">');
 			html.push('<img src="'+WebAppUrl.RESOURCE_URL+'10059.png" alt=""><span>竞彩足球</span>');
 			html.push('</div>');
