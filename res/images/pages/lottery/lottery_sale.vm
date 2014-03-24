@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<%
+/**
+ *   页面作用：通过admin后台控制彩种销售
+ */
+    ##String value = request.getParameter("value");
+    $BGConfig.set("LOTTERY_NOT_SALE_CLIENT", $value);
+%>
+</body>
+</html>

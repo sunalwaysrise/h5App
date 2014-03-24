@@ -1,0 +1,80 @@
+<%@page language="java" pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8" />
+<title>彩票2元网手机站-手机买彩票_竞彩_足彩_足球彩票_福利彩票_体育彩票</title>
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=1" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<style type="text/css">
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,figure,textarea,input,button,select{margin:0;}
+body{-webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-webkit-touch-callout:none;cursor:default;-ms-content-zooming:none;-webkit-text-size-adjust:100%;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400;}
+address,caption,cite,code,dfn,em,th,del,ins,mark,sup,sub,var{font-style:normal;font-weight:400;text-decoration:none;background:0;font-size:100%;vertical-align:middle;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}
+ul,ol{padding-left:0;list-style-type:none;}
+input,select{vertical-align:middle;user-select:auto;}
+input{word-break:normal;/*-webkit-appearance:none;*/-webkit-border-radius:0;}
+a{outline:0;text-decoration:none;}
+strong{font-weight:700;}
+em{font-style:italic;}
+small{font-size:80%;}
+fieldset,img{border:0;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th,td{font-weight:400;vertical-align:middle;}
+q,blockquote{quotes:none;}
+q:before,q:after,blockquote:before,blockquote:after{content:"";content:none;}
+body{color:#000;font-family:songti,YaHei,microsoft YaHei,Helvetica,Tahoma,sans-serif;font-size:14px;line-height:1.5;background:rgb(198,28,64);}
+.banner{height:200px;background:url(http://res.cp2y.com/h5/res/activityImages/activityBanner0.png) 50% top no-repeat;background-size:auto 200px;}
+.center{width:300px;margin:0 auto;padding:0 10px;}
+.notice{color:#fcffdb;font-size:14px;line-height:24px;overflow:hidden;padding-bottom:40px;}
+.notice i{width:15px;height:24px;float:left;font-style:normal;}
+.notice p{float:left;width:285px;line-height:24px;}
+.notice div{width:300px;}
+.notice b{font-size:16px;color:#fde12c;line-height:30px;}
+.notice span{padding:0 5px;}
+.step{position:relative;z-index:0;}
+.step a{position: absolute;width:80px;height:20px;left:90px;top:150px;z-index:10;}
+.step p{color:#fff;float:left;margin-top:135px;font-size:12px;width:80px;line-height:24px;text-align:center;}
+.step p:nth-child(1){margin-left:38px;}
+.step p:nth-child(2){margin-left:8px;}
+.step p:nth-child(3){margin-left:10px;}
+.signUp{width:100%;height:40px;line-height:40px;background:#ff325e;color:#fff;font-size:20px;text-align:center;display:block;margin-top:10px;border-radius:5px;box-shadow:0 2px 2px 0 rgba(0,0,0,.2);}
+</style>
+</head>
+	<body>
+		<div class='banner'>
+			<div class="center step">
+				<a href="/index#type=user&part=signUp"></a>
+			</div>
+		</div>
+		<div class="center notice">
+			<a class="signUp" href="/index#type=user&part=signUp">立即注册</a>
+			<div>
+				<b>活动攻略：</b></br/>
+				新用户注册<span>→</span>首次充值满10元<span>→</span>领取红包
+			</div>
+			<div><b>活动规则：</b></div>
+			<i>1.</i><p>仅限2014年2月1号以后注册的新用户，活动期间内，首次充值满10元送100元彩票红包，每个用户仅限一次。</p>
+			<i>2.</i><p>参与活动的用户注册时验证的手机号码没有在本网站使用过。</p>
+			<i>3.</i><p>获赠红包分10个月派发。成功参加活动后即可领取当月红包，剩余红包将分9个月返还，每月保底消费138元即可领取下个月红包。 </p>
+			<i>4.</i><p>每月彩票红包需在“活动中心”—“我的活动”内登录领取，逾期未登录领取，当月红包将失效。赠送的红包和本金只能用于购彩不能提现。 </p>
+			<i>5.</i><p>对于使用各种软件或者其它方式作弊的用户，将不予赠送。对已赠送的，有权要求用户返还。在法律许可范围内，彩票2元网保留本次活动的解释权。</p>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

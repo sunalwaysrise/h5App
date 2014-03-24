@@ -1,0 +1,91 @@
+<div class="tit">
+	<h1>绑定银行卡</h1>
+</div>
+#if(prompt.length() > 0)
+<div class="error">×$!{prompt}</div>
+#end
+<div class="tip">第一次银行卡充值，请先绑定用于充值的银行卡：</div>
+#if($error.length()>0)<div style="background-color:#cf3;color:#069"><b>$error</b></div></ww:if>
+<div class="bank">
+    <form name="bindBank" action="$link.setRelative("/core/user/yl_card_bind")" encode="true" includeParams="false" />" method="post">
+  	    <input type="hidden" name="requestType" value="1">
+        <input type="hidden" name="clientUserSession" value="${clientUserSession}">
+        <p><span>银行：</span> #if($exitsBankCard)$bank #else
+            <select id="bank" name="bank" >
+                <option value="-1">请选择</option>
+                <option value="工商银行" #if($bank == '工商银行')selected="selected" #end>工商银行(推荐)</option>
+                <option value="中国农业银行" #if('中国农业银行'.contains($bank)) selected="selected" #end>中国农业银行(推荐)</option>
+                <option value="中国建设银行" #if('中国建设银行'.contains($bank))selected="selected" #end>中国建设银行(推荐)</option>
+                <option value="招商银行" #if($bank == '招商银行')selected="selected" #end>招商银行(推荐)</option>
+                <option value="交通银行" #if($bank == '交通银行')selected="selected" #end>交通银行</option>
+                <option value="中国银行" #if($bank == '中国银行')selected="selected" #end>中国银行</option>
+                <option value="中国邮政储蓄银行" #if('中国邮政储蓄银行'.contains($bank)) selected="selected" #end>中国邮政储蓄银行</option>
+                <option value="中国民生银行" #if('中国民生银行'.contains($bank)) selected="selected" #end>中国民生银行</option>
+                <option value="兴业银行" #if($bank == '兴业银行')selected="selected" #end>兴业银行</option>
+                <option value="华夏银行" #if($bank == '华夏银行')selected="selected" #end>华夏银行</option>
+                <option value="中国光大银行" #if('中国光大银行'.contains($bank)) selected="selected" #end>中国光大银行</option>
+                <option value="宁波银行" #if($bank == '宁波银行')selected="selected" #end>宁波银行</option>
+                <option value="上海浦东发展银行" #if('上海浦东发展银行'.contains($bank)) selected="selected" #end>上海浦东发展银行</option>
+                <option value="广东发展银行" #if('广东发展银行'.contains($bank)) selected="selected" #end>广东发展银行</option>
+                <option value="深圳发展银行" #if('深圳发展银行'.contains($bank)) selected="selected" #end>深圳发展银行</option>
+                <option value="中信实业银行" #if($bank == '中信实业银行')selected="selected" #end>中信实业银行</option>
+            </select>#end<br/>
+            <p><span>卡号：</span>#if(exitsBankCard)>
+            $bankCard<br/> #else <input type="text" name="bankCard" value="$bankCard" size="18" maxlength="30"/><br/>#end
+            <p><span>开户行所在地区：</span>#if($exitsBankCard) $province $city #else <select id="province" name="province">
+                <option value="北京" #if("$province == '北京')selected="selected" #end>北京</option>
+                <option value="上海" #if("$province == '上海')selected="selected" #end>上海</option>
+                <option value="重庆" #if("$province == '重庆')selected="selected" #end>重庆</option>
+                <option value="天津" #if("$province == '天津')selected="selected" #end>天津</option>
+                <option value="广东" #if("$province == '广东')selected="selected" #end>广东</option>
+                <option value="河北" #if("$province == '河北')selected="selected" #end>河北</option>
+                <option value="山西" #if("$province == '山西')selected="selected" #end>山西</option>
+                <option value="内蒙古" #if("$province == '内蒙古')selected="selected" #end>内蒙古</option>
+                <option value="辽宁" #if("$province == '辽宁')selected="selected" #end>辽宁</option>
+                <option value="吉林" #if("$province == '吉林')selected="selected" #end>吉林</option>
+                <option value="黑龙江" #if("$province == '黑龙江')selected="selected" #end>黑龙江</option>
+                <option value="江苏" #if("$province == '江苏')selected="selected" #end>江苏</option>
+                <option value="浙江" #if("$province == '浙江')selected="selected" #end>浙江</option>
+                <option value="安徽" #if("$province == '安徽')selected="selected" #end>安徽</option>
+                <option value="福建" #if("$province == '福建')selected="selected" #end>福建</option>
+                <option value="江西" #if("$province == '江西')selected="selected" #end>江西</option>
+                <option value="山东" #if("$province == '山东')selected="selected" #end>山东</option>
+                <option value="河南" #if("$province == '河南')selected="selected" #end>河南</option>
+                <option value="湖北" #if("$province == '湖北')selected="selected" #end>湖北</option>
+                <option value="湖南" #if("$province == '湖南')selected="selected" #end>湖南</option>
+                <option value="广西" #if("$province == '广西')selected="selected" #end>广西</option>
+                <option value="海南" #if("$province == '海南')selected="selected" #end>海南</option>
+                <option value="四川" #if("$province == '四川')selected="selected" #end>四川</option>
+                <option value="贵州" #if("$province == '贵州')selected="selected" #end>贵州</option>
+                <option value="云南" #if("$province == '云南')selected="selected" #end>云南</option>
+                <option value="西藏" #if("$province == '西藏')selected="selected" #end>西藏</option>
+                <option value="陕西" #if("$province == '陕西')selected="selected" #end>陕西</option>
+                <option value="甘肃" #if("$province == '甘肃')selected="selected" #end>甘肃</option>
+                <option value="青海" #if("$province == '青海')selected="selected" #end>青海</option>
+                <option value="宁夏" #if("$province == '宁夏')selected="selected" #end>宁夏</option>
+                <option value="新疆" #if("$province == '新疆')selected="selected" #end>新疆</option>
+            </select><input type="text" name="city" value="$city" size="5" maxlength="30"/>市 #end <br/>
+            #if(!$exitsIdentityNumber)
+                    <p><span>开户人姓名：</span><input type="text" name="name" size="18" maxlength="20" value="$name"/><br/>
+            #else
+                    <p><span>开户人姓名：</span>$name<br/>
+            #end
+
+            #if(!$exitsIdentityNumber>
+                    <p><span>开户人身份证：</span><input type="text"  style="width:125px" name="identityNumber" size="18"  maxlength="20" value="$identityNumber"/><br/>
+            
+            #else
+                    <p><span>开户人身份证：</span>$identityNumber<br/>
+            #end
+           <div class="bank_btn"><input type="submit" value="提交绑定"/></div>
+    </form>
+</div>
+
+
+
+<div class="note">注意事项</div>
+<div class="note_con">
+	<p>①您在这里绑定的银行卡将是"在线提款"和"银联手机支付"的唯一专用卡；</p>
+    <p>②支持提款的银行卡有工商银行、建设银行、农业银行、招商银行、交通银行、中国银行、邮政储蓄等16家主流银行；</p>
+    <p>③免费服务热线：<span>400-666-7575</span></p>
+</div>

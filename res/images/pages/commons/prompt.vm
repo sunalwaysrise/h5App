@@ -1,0 +1,15 @@
+<body>
+<div class="tit">
+	<h1>$!{title}</h1>
+</div>
+
+<div class="list2">
+	#if(${prompt})
+	 <span>${prompt}</span>
+	#else
+	 <span>操作出现错误，请稍后重试！</span>
+	#end
+</div>
+<div class="qrfh"><a href="http://h5.cp2y.com">返回首页</a></div><br/>
+<div class="foot">彩票2元网版权所有</div>
+</body>

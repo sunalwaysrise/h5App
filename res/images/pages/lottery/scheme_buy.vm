@@ -1,0 +1,90 @@
+<script type="text/javascript">
+
+    function resetForm(id) {
+        $('#' + id).each(function() {
+            this.reset();
+        });
+    }
+
+	  //恢复
+	function goback() {
+		document.getElementById('mysubmit').removeAttribute('disabled');
+	}
+	
+	  //input失效，延时5分钟后，又有效了；
+	function buttondisabled() {
+		document.getElementById('mysubmit').disabled='false';
+		setTimeout('goback()',10000);
+		return true;
+	}
+
+    
+</script>
+
+
+
+<div class="tit">
+	<h1>$!{lotteryName}购买确认单</h1>
+</div>
+<div class="list">
+	<span>#if(${buyVO.issueCount}>1)起始  #end 期号：</span>${buyVO.issue}期
+</div>
+<div class="list">
+	<p>
+		<span>注数：</span>${buyVO.schemeNumberUnit}注
+    </p>
+    <p>
+		<span>倍数：</span>${buyVO.multiple}
+    </p>
+    <p>
+		<span>类型：</span>#if{${buyVO.buyType}==0)合买  #else 代购 #end
+    </p>
+    #if($buyVO.issueCount > 1)
+    <p>
+		<span>追号期数：</span>${buyVO.issueCount}期
+    </p>
+    #end
+    #if($buyVO.remuneration > 0)
+    <p>
+		<span>盈利佣金：</span>${buyVO.remuneration}
+    </p>
+    #end
+
+</div>
+<div class="list">
+
+     <!--todo 投注号码-->
+
+     #if("betType==288||betType==289")
+
+            <p><span>投注内容： </span>$betInfo</p>
+     #else
+        #foreach($schmeNumber in ${schemeNumList})
+           <p><span>#if($velocityCount==1)投注号码：#end</span><strong>${schmeNumber.type} ${schmeNumber.number}</strong><p>
+        #end
+     #end
+     <p>
+	 <span>金额总共：</span>${buyVO.schemeAmount}元
+	
+	</p>
+	
+	
+	#if($buyVO.buyType==0) <span>认购金额：</span>${buyVO.buyAmount}元
+    #else
+    #end
+	
+	
+</div>
+
+<div class="qr_btn">
+   <form id="myform" onsubmit="return buttondisabled();" action="$link.setRelative("/core/lottery/buy_lottery")"%> method="post" >
+       <input type="hidden" name="clientUserSession" value="${clientUserSession}">
+       <input type="hidden" name="tempScheme" value="${schemeId}">
+       <input type="hidden" name="requestType" value="3">
+       <input type="hidden" name="v" value="${param.v}" />
+        #if("betType==288||betType==289")
+           <input type="hidden" name="betType" value="${betType}">
+        #end
+	   <input id="mysubmit" type="submit" name="提交" />
+	</form>
+</div>

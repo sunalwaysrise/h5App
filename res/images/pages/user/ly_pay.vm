@@ -1,0 +1,35 @@
+<div class="tit">
+	<h1>充值</h1>
+</div>
+#if(prompt.length() > 0)
+<div class="error">×${prompt}</div>
+#end
+<div class="bank">
+<form name="withdraw" action="$link.setRelative("/core/user/yl_card_pay")" encode="true" includeParams="false"/>" method="post">
+    <input type="hidden" name="requestType" value="1">
+    <input type="hidden" name="clientUserSession" value="${clientUserSession}">
+    <input type="hidden" name="bankType" value="${bankType}"/>
+    <input type="hidden" name="phoneType" value="${phoneType}"/>
+    <div class="frame">
+        <p><span>金额：</span><input type="text" name="money"  value="#if($money>0)$money #end" size="8" maxlength="10"/>元<span class="fg">(至少5元)</span><br/>
+           <p><span> 手机：</span><input type="text" name="mobile"  value="$phoneNumber" size="13" maxlength="11"/>
+        <p><span>银行名称：</span>$province $city $bank<br/>
+        <p><span>银行卡号：</span>$bankCard<br/>
+        #if($name!=null && $name.length()>0)开户人：$name<br/>#end
+        #if($identityNumber!=null && $identityNumber.length()>0)身份证：$identityNumber<br/>#end
+        #if($ylPayAddressFail)
+            <p><span>身份证户籍地址：</span><input type="text" name="identityAddr" size="18" value="" maxlength="50"/><br/>
+            <span class="ds fcg">为了您的支付安全，银联要求填写身份证户籍地址，地址写到街道即可，不用具体几号或几栋</span><br/>
+        #end
+        <input type="hidden" name="mobileCall" value="$mobileCall"/>
+        <input type="submit" value="提交充值" class="btn1"/>
+    </div>
+</form>
+</div>
+<div class="note">注意事项</div>
+    <div class="note_con">
+        <p>①提交信息后，您的手机将收到银联<span class="fr">02096585</span>的来电，请按语音电话提示输入银行卡密码完成支付。<br/>
+        <p>②银联语音充值单笔小于100元将收取1元/笔的手续费，单笔充值大于等于100元免手续费，无需开通手机银行，只要带银联标记的卡即可支付。<br/>
+        <p>③单卡第一个月充值限制50次，首笔订单限1000元，之后每日限3000元，第二个月开始每月充值限制100次，每日限8000元。<br/>
+        <p>④免费服务热线：<span>400-666-7575</span>
+    </div>

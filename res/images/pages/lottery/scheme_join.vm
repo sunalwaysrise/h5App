@@ -1,0 +1,87 @@
+<div class="tit">
+    <h1> $lotteryName方案详情</h1>
+</div>
+<div class="list">
+    <span>发起人：</span>$schemeVO.userName
+
+    <div class="list list3" style="border-bottom:none;">
+        #if($schemeVO.open==1)
+           #foreach($schmeNumber in ${schemeVO.schemeContent})
+             #if($velocityCount<=11)
+               <p>
+                  <span>#if($velocityCount==1)投注号码：#end</span><strong>$schmeNumber.get("type") /> $schmeNumber.get("number") /></strong>
+                </p>
+             #end
+           #end
+           #if($schemeVO.schemeContent.size()>10)
+              <p>
+                <span></span><strong>手机无法显示更多内容...</strong>
+              </p>
+           #end
+        #else
+           <p>
+            <span>投注号码：</span><strong>$openDesc</strong>
+           </p>
+        #end
+        #if($schemeVO.schemeDesc.length()>0)
+           <p class="fams"><span>方案描述：</span><strong class="gd_tip">$schemeVO.schemeDesc</strong><div class="clear"></div></p>
+        #end
+    </div>
+</div>
+<div class="list">
+    <p>
+        <span>方案号：</span>$schemeVO.schemeId
+    </p>
+    <p>
+        <span>金额：</span>${schemeVO.schemeAmount}元
+    </p>
+    <p>
+        <span>类型：</span>$schemeVO.schemeType
+    </p>
+    <p>
+        <span>#if($schemeVO.issueCount > 1)开始 #end 奖期：</span> $schemeVO.issue
+    </p>
+        if($schemeVO.issueCount > 1)
+    <p>
+        <span>期数：</span>$schemeVO.issueCount
+    </p>
+    </ww:if>
+    <p>
+        <span>发起时间：</span>$schemeVO.initiateTime
+    </p>
+</div>
+<div class="list">
+    <p class="red">
+        <span>已认购：</span><strong>${schemeVO.buyAmount}元</strong>
+    </p>
+    <p class="red">
+        <span>剩余：</span><strong>${schemeVO.remainAmount}元</strong>
+    </p>
+    <p class="red">
+        <span>保底：</span><strong>${schemeVO.safeguard}元</strong>
+    </p>
+    <p class="red">
+        <span>进度：</span><strong>$schemeVO.progress</strong>
+    </p>
+    <p class="red">
+        <span>佣金：</span><strong>${schemeVO.remuneration}%</strong>
+    </p>
+    <p class="red">
+        <span>最少认购：</span><strong>${schemeVO.minParticipant}元</strong>
+    </p>
+</div>
+<form action="$link.setRelative("/core/lottery/join_buy")">
+    <input type="hidden" name="clientUserSession" value="$clientUserSession"/>
+    <input type="hidden" name="schemeId" value="$schemeVO.schemeId"/>
+    <input type="hidden" name="requestType" value="1"/>
+
+    <div class="list">
+        <p>
+            <span>我要认购：</span><input name="buyMoney" type="text" class="rg_txt" maxlength="8"/>元
+        </p>
+    </div>
+    <div class="qr_btn">
+        <button type="submit"></button>
+    </div>
+    <div class="qr"><input type="checkbox" checked="checked"/><span>我已经阅读了<b>《用户合买代购协议》</b>并同意其中条款</span></div>
+</form>

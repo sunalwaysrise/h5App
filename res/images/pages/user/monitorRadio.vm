@@ -1,0 +1,78 @@
+<link href="/js/tableGrid/skins/style.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/js/tableGrid/js/table_split.js"></script>
+<h1>H5手机站action监控列表</h1>
+<script>
+  jQuery("document").ready(function(){	
+	jQuery("span").click(function(){
+	   var sort="asc";
+	   var id=$(this).attr("id");
+	   var className = $(this).attr("class");
+	   if(className=="sort_down"){
+	      sort="desc";
+	   }
+	   data="sort="+sort+"&id="+id,
+	   document.location.href="/user/monitorRadio?"+data
+	   
+	});	
+ });	 
+ 
+ function fresh(){
+ 
+    jQuery.ajax({
+        url:"/user/fresh",
+        contentType : "application/json",
+        success : function(msg) {
+          var msg =  msg.flag;
+          alert(msg);
+        }
+  });
+ }
+ 
+  function freshMemCache(){
+    var cacheKey=document.getElementById("cacheKey").value;
+   
+    if(cacheKey==null||cacheKey==""){
+       alert("请输入要刷新MemCache的key值");
+       return;
+    }
+    jQuery.ajax({
+        url:"/user/freshMemCache",
+        contentType : "application/json",
+        data: "cacheKey="+cacheKey,
+        success : function(msg) {
+          var msg =  msg.flag;
+          alert(msg);
+        }
+  });
+ }
+</script>
+ 
+<div><input type='button' onclick='fresh()' style='height:20px;width:100px;color:blue' value='刷新本地缓存'></div>
+<div><input type='button' onclick='freshMemCache()' style='height:20px;width:100px;color:blue' value='刷新memcache'><input type='text' id='cacheKey' name='cacheKey' length='40px'/></div>
+<table class="tableStyle" sortMode="true">
+	<tr>
+		<th>类名</th>
+		<th>方法</th>
+		<th>url</th>
+		<th><span id="maxTime" class="sort_off">最大访问时间</span></th>
+		<th><span id="minTime" class="sort_off">最小访问时间</span></th>
+		<th><span id="averageTime" class="sort_off">平均访问时间</span></th>
+		<th><span id="accessTime" class="sort_off">最后访问时间</span></th>
+		<th><span id="totalAccessTime" class="sort_off">总时间</span></th>
+		<th><span id="operateTimes" class="sort_off">访问次数</span></th>
+	</tr>
+	#foreach($monitor in $dataList)
+	<tr>
+		<td>$monitor.actionName</td>
+		<td>$monitor.methodName</td>
+		<td>$monitor.url</td>
+		<td>$monitor.maxTime</td>
+		<td>$monitor.minTime</td>
+		<td>$monitor.averageTime</td>
+		<td>$monitor.accessTime</td>
+		<td>$monitor.totalAccessTime</td>
+		<td>$monitor.operateTimes</td>
+	</tr>
+    #end
+    
+</table>

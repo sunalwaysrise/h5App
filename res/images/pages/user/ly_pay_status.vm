@@ -1,0 +1,29 @@
+<div class="tit">
+	<h1>充值</h1>
+</div>
+<div class="bank">
+    <div class="zh_info">您的<span> $money</span>元充值请求已经受理！ </div>
+<div class="tip"><span class="fr">支付状态</span></div>
+<div class="bank">
+    #if($msg!=null&&$msg.length>0)<div class="zh_info"><span>$msg</span></div>
+    #else<div class="zh_info"><span>★$prompt</span></div><br/>
+        <p><a href="/core/user/yl_card_view?clientUserSession=${clientUserSession}&requestType=1">重新充值</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="runcp2yphoneclient://">返回客户端</a></p>
+            </ww:else>
+</div>
+<div class="note">接听银联电话</div>
+<div class="bank">
+    <ul>
+        <p>您的电话$mobile将收到中国银联<span class="fr">02096585</span>的来电，请按语音提示输入银行卡密码完成支付。</p>
+        <p>请确保您在电话旁接听</p>
+    </ul>
+</div>
+<div class="note"><span class="fr">重要提示</span></div>
+<div class="note_con">
+        <p>支付成功后，<a href="/core/user/query_balance?clientUserSession=${clientUserSession}">查看余额</a></p>
+        <p>或<a href="/core/user/yl_card_view?clientUserSession=${clientUserSession}&requestType=1">重新充值</a></p>
+        <p>在您未接到银联电话并输入密码之前，您的银行帐户内的钱是不会被扣除的</p>
+       <p>如需帮助请联系本站客服<span class="fb">400-666-7575</span></p>
+        <p>银联客服<span class="fb">400-657-7577</span></p>
+</div>
+ </div>

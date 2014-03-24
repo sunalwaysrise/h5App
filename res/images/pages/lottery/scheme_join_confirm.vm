@@ -1,0 +1,17 @@
+<div class="tit"><h1>${title}</h1></div>
+
+<div class="list" style="margin-top: 30px;padding-bottom: 20px;">
+    <p>您参与了【${lotteryName}】合买方案,</p>
+    <p>购买金额总共 <strong style="color: red">${param.buyMoney}</strong> 元。</p>
+</div>
+
+<div class="qr_btn">
+    <form action="$link.setRelative("/core/lottery/join_buy")" method="post">
+        <input type="hidden" name="clientUserSession" value="${clientUserSession}"/>
+        <input type="hidden" name="schemeId" value="${param.schemeId}"/>
+        <input type="hidden" name="buyMoney" value="${param.buyMoney}"/>
+        <input type="hidden" name="requestType" value="1"/>
+        <input type="submit"  name="提交"/>
+    </form>
+</div>
+<div class="foot">彩票2元网版权所有</div>
