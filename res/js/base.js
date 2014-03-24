@@ -205,7 +205,7 @@ cp2y.mainPage=function(){
 			html.push('<p class="p11">冠军竞猜</p>');
 			html.push('<p>世界杯冠军、欧冠杯冠军</p>');
 			html.push('</div></div></a>');
-			html.push('<a href="/news/more.jsp"><div class="playType">');
+			html.push('<a href="more.html"><div class="playType">');
 			html.push('<div class="img2">');
 			html.push('<img src="'+WebAppUrl.RESOURCE_URL+'more.png" alt="" style="margin-top:13px">');
 			html.push('</div>');
